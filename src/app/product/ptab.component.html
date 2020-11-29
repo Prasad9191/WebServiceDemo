@@ -1,0 +1,19 @@
+<div>
+    <table border="2">
+        <tr><th>Product Id</th><th>Product Name</th><th>Product Code</th><th>Product Price</th></tr>
+        <tr *ngFor="let p of parr" style="text-align: center;">
+            <td>{{p.pid}}</td>
+            <td>{{p.pname|testpipe:p.price}}</td><!--multiple pipe uesd also user defined pipe used-->
+            <td>{{p.pname}}</td>
+            <td>{{p.price|currency:"Rs."}}</td>
+            <td><a (click)="deleteProduct(p)">Delete</a>|
+                <a (click)="updateProduct(p)">Edit</a>
+            </td>
+        </tr>
+    </table>
+    <button type="button" name="btn" (click)="displayForm()">Add Product</button>
+
+<div *ngIf="flag">
+    <pform [upob]="pob" (myevent)="parr=$event" (myevent1)="flag=$event"></pform>
+</div>
+</div>
